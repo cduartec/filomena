@@ -4,6 +4,9 @@
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
+#include "LinearIsoElasticPFDamageEOS.h"
+#include "LinearIsoElasticPFDamageEOSBulkViscosity.h"
+
 template<>
 InputParameters validParams<FilomenaApp>()
 {
@@ -33,6 +36,9 @@ void
 FilomenaApp::registerApps()
 {
   registerApp(FilomenaApp);
+
+  registerMaterial(LinearIsoElasticPFDamageEOS);
+  registerMaterial(LinearIsoElasticPFDamageEOSBulkViscosity);
 }
 
 // External entry point for dynamic object registration
