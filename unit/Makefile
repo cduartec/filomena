@@ -31,19 +31,19 @@ ADDITIONAL_LIBS 	:= -L$(CPPUNIT_DIR)/lib -lcppunit
 
 # dep apps
 APPLICATION_DIR    := $(CURRENT_DIR)/..
-APPLICATION_NAME   := stork
+APPLICATION_NAME   := filomena
 include            $(FRAMEWORK_DIR)/app.mk
 
 APPLICATION_DIR    := $(CURRENT_DIR)
-APPLICATION_NAME   := stork-unit
+APPLICATION_NAME   := filomena-unit
 BUILD_EXEC         := yes
 DEP_APPS    ?= $(shell $(FRAMEWORK_DIR)/scripts/find_dep_apps.py $(APPLICATION_NAME))
 include $(FRAMEWORK_DIR)/app.mk
 
-# Find all the STORK unit test source files and include their dependencies.
-stork-unit_srcfiles := $(shell find $(CURRENT_DIR) -name "*.C")
-stork-unit_deps := $(patsubst %.C, %.$(obj-suffix).d, $(stork-unit_srcfiles))
--include $(stork-unit_deps)
+# Find all the FILOMENA unit test source files and include their dependencies.
+filomena-unit_srcfiles := $(shell find $(CURRENT_DIR) -name "*.C")
+filomena-unit_deps := $(patsubst %.C, %.$(obj-suffix).d, $(filomena-unit_srcfiles))
+-include $(filomena-unit_deps)
 
 ###############################################################################
 # Additional special case targets should be added here
